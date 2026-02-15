@@ -1,0 +1,450 @@
+@charset "UTF-8";
+/* +++++ MAPS +++++*/
+/* +++++ MIXINS +++++*/
+/* +++++ GENERAL +++++*/
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+:root {
+  --bg-grey-color: #F6F6F6;
+  --bg-white-color: #ffffff;
+  --bg-localisation-color: #eaeaea;
+  --bg-footer-color: #353535;
+  --button-main-color: #9356DC;
+  --button-second-color: #FF79DA;
+  --etiquette-main-color: #99E2D0;
+}
+
+body {
+  margin: 0;
+}
+
+@media (min-width: 1px) {
+  /* +++++ HEADER +++++*/
+  .section-header__container-logo-icone {
+    margin: 20px 0 20px 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .section-header__icone {
+    position: absolute;
+    left: 27px;
+    top: 17px;
+  }
+  .section-header__container-image {
+    width: 100%;
+  }
+  .section-header__image {
+    width: 100%;
+    aspect-ratio: 2/1;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .section-header .header__container-image {
+    position: relative;
+    z-index: 1;
+  }
+  .section-header .header__container-image-menu {
+    width: 100%;
+    aspect-ratio: 2/1.2;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  /* +++++ MENUS +++++*/
+  .section-menu {
+    margin: -10% 0 0 0;
+    position: relative;
+    z-index: 2;
+    padding: 0 20px;
+    background-color: var(--bg-grey-color);
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    /* +++++ CARTE +++++*/
+  }
+  .section-menu__container-titre-icone {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .section-menu__titre {
+    font-family: "Shrikhand", serif;
+    font-size: 28px;
+    font-weight: 400;
+    margin: 30px 0 0 0;
+  }
+  .section-menu__coeur-vide, .section-menu__coeur-plein {
+    position: absolute;
+    top: 45px;
+    right: 5%;
+    transition: opacity 0.01s ease, transform 0.5s ease;
+  }
+  .section-menu__coeur-vide {
+    z-index: 2;
+  }
+  .section-menu__coeur-vide:hover {
+    opacity: 0;
+    cursor: pointer;
+  }
+  .section-menu__coeur-plein {
+    z-index: 2;
+    opacity: 0;
+  }
+  .section-menu__coeur-plein:hover {
+    opacity: 1;
+    transform: scale(1.3);
+    cursor: pointer;
+  }
+  .section-menu__container-carte {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .section-menu__titre-plats {
+    font-size: 16px;
+    font-weight: 300;
+    margin: 30px 0 8px 0;
+    position: relative;
+  }
+  .section-menu__titre-plats::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0%;
+    width: 40px;
+    border-bottom: 3px solid var(--etiquette-main-color);
+  }
+  .section-menu__card-plat {
+    background-color: var(--bg-white-color);
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+  }
+  .section-menu__card-plat::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 0;
+    right: 0;
+    top: 0;
+    background-color: #99e2d0;
+    transition: width 250ms ease-in-out;
+    z-index: 1;
+  }
+  .section-menu__card-plat-nom {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0 0 0 0;
+  }
+  .section-menu__card-plat-containertxtprix {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 4px;
+    position: relative;
+    flex: 1;
+    z-index: 2;
+  }
+  .section-menu__card-plat-texte {
+    display: block;
+    text-overflow: ellipsis;
+    font-size: 15px;
+    font-weight: 300;
+    margin: 0 0 0 0;
+  }
+  .section-menu__card-plat-prix {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 0 0;
+    position: relative;
+    transition: transform 250ms ease-in-out;
+  }
+  .section-menu__card-plat-check {
+    border-radius: 100%;
+    padding: 0px 2px;
+    background-color: whitesmoke;
+    color: var(--etiquette-main-color);
+    position: absolute;
+    right: -50px;
+    bottom: 10px;
+    transition: all 250ms ease-in-out;
+  }
+  .section-menu__card-plat:hover {
+    cursor: pointer;
+  }
+  .section-menu__card-plat:hover::before {
+    width: 10%;
+  }
+  .section-menu__card-plat:hover .section-menu__card-plat-prix {
+    transform: translateX(-150%);
+  }
+  .section-menu__card-plat:hover .section-menu__card-plat-check {
+    transform: translateX(-52px);
+  }
+  .section-menu__container-bouton {
+    text-align: center;
+  }
+  .section-menu__bouton {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 30px 0 30px 0;
+    width: 40%;
+    text-decoration: none;
+    color: white;
+    padding: 15px;
+    border-radius: 30px;
+    background: linear-gradient(to top left, #9356DC, #FF79DA);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+  }
+  /* +++++ FOOTER +++++ */
+  .section-footer {
+    margin: 0 0 0 0;
+    padding: 20px;
+    background-color: var(--bg-footer-color);
+    color: white;
+  }
+  .section-footer__lien {
+    margin: 8px 0;
+  }
+  .section-footer__lien-icone1 {
+    margin: 0 10px 0 0;
+  }
+  .section-footer__lien-icone2 {
+    margin: 0 4px 0 0;
+  }
+  .section-footer__lien-texte {
+    font-size: 16px;
+    text-decoration: none;
+    color: white;
+  }
+}
+@media (min-width: 1024px) {
+  /* +++++ HEADER +++++*/
+  .section-header__container-logo-icone {
+    margin: 20px 0 20px 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .section-header__icone {
+    position: absolute;
+    left: 27px;
+    top: 17px;
+  }
+  .section-header__container-image {
+    width: 100%;
+  }
+  .section-header__image {
+    width: 100%;
+    aspect-ratio: 4/1.5;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .section-header .header__container-image {
+    position: relative;
+    z-index: 1;
+  }
+  .section-header .header__container-image-menu {
+    width: 100%;
+    aspect-ratio: 2/1.2;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  /* +++++ MENUS +++++*/
+  .section-menu {
+    margin: auto;
+    position: relative;
+    z-index: 2;
+    margin-top: -3%;
+    padding: 0 20px;
+    background-color: var(--bg-grey-color);
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    width: 70%;
+    /* +++++ CARTE +++++*/
+  }
+  .section-menu__container-titre-icone {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .section-menu__titre {
+    font-family: "Shrikhand", serif;
+    font-size: 28px;
+    font-weight: 400;
+    margin: 30px auto;
+  }
+  .section-menu__coeur-vide, .section-menu__coeur-plein {
+    position: absolute;
+    top: 45px;
+    right: 28%; /*en desktop*/
+    transition: opacity 0.01s ease, transform 0.5s ease;
+  }
+  .section-menu__coeur-vide {
+    z-index: 2;
+  }
+  .section-menu__coeur-vide:hover {
+    opacity: 0;
+    cursor: pointer;
+  }
+  .section-menu__coeur-plein {
+    z-index: 2;
+    opacity: 0;
+  }
+  .section-menu__coeur-plein:hover {
+    opacity: 1;
+    transform: scale(1.3);
+    cursor: pointer;
+  }
+  .section-menu__container-carte {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 50%; /*100% en mobile*/
+    margin: auto; /*en Desktop uniquement pour centrer la carte*/
+  }
+  .section-menu__titre-plats {
+    font-size: 16px;
+    font-weight: 300;
+    margin: 30px 0 8px 0;
+    position: relative;
+  }
+  .section-menu__titre-plats::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0%;
+    width: 40px;
+    border-bottom: 3px solid var(--etiquette-main-color);
+  }
+  .section-menu__card-plat {
+    background-color: var(--bg-white-color);
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+  }
+  .section-menu__card-plat::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 0;
+    right: 0;
+    top: 0;
+    background-color: #99e2d0;
+    transition: width 250ms ease-in-out;
+    z-index: 1;
+  }
+  .section-menu__card-plat-nom {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0 0 0 0;
+  }
+  .section-menu__card-plat-containertxtprix {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 4px;
+    position: relative;
+    flex: 1;
+    z-index: 2;
+  }
+  .section-menu__card-plat-texte {
+    font-size: 15px;
+    font-weight: 300;
+    margin: 0 0 0 0;
+  }
+  .section-menu__card-plat-prix {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 0 0;
+    position: relative;
+    transition: transform 250ms ease-in-out;
+  }
+  .section-menu__card-plat-check {
+    border-radius: 100%;
+    padding: 0px 2px;
+    background-color: whitesmoke;
+    color: var(--etiquette-main-color);
+    position: absolute;
+    right: -50px;
+    bottom: 10px;
+    transition: all 250ms ease-in-out;
+  }
+  .section-menu__card-plat:hover::before {
+    width: 10%;
+  }
+  .section-menu__card-plat:hover .section-menu__card-plat-prix {
+    transform: translateX(-35px);
+  }
+  .section-menu__card-plat:hover .section-menu__card-plat-check {
+    transform: translateX(-50px);
+  }
+  .section-menu__container-bouton {
+    text-align: center;
+  }
+  .section-menu__bouton {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 30px 0 30px 0;
+    width: 20%;
+    text-decoration: none;
+    color: white;
+    padding: 15px;
+    border-radius: 30px;
+    background: linear-gradient(to top left, #9356DC, #FF79DA);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+  }
+  /* +++++ FOOTER +++++ */
+  .section-footer {
+    display: flex; /*Aligner le logo et les liens en Desktop*/
+    flex-direction: row;
+    justify-content: flex-end;
+    margin: 0 0 0 0;
+    padding: 20px;
+    background-color: var(--bg-footer-color);
+    color: white;
+  }
+  .section-footer__logo {
+    order: 2; /*on change l'ordre pour passer le logo à la suite des liens en Desktop*/
+    margin: 15px 0 0 90px;
+  }
+  .section-footer__contenu {
+    order: 1; /*on change l'ordre pour passer le logo à la suite des liens en Desktop*/
+    display: flex; /*Aligner les liens en Desktop*/
+    flex-direction: row; /*Aligner les liens en Desktop*/
+    gap: 10px;
+    margin: 20px 0 0 0;
+  }
+  .section-footer__lien {
+    margin: 0px 0;
+  }
+  .section-footer__lien-icone1 {
+    margin: 0 10px 0 0;
+  }
+  .section-footer__lien-icone2 {
+    margin: 0 4px 0 0;
+  }
+  .section-footer__lien-texte {
+    font-size: 16px;
+    text-decoration: none;
+    color: white;
+  }
+  .section-footer__lien-texte--mentions {
+    margin-left: 20px; /*margin left à gauche de Mentions Légales sur Desktop*/
+  }
+}/*# sourceMappingURL=style_menus.css.map */

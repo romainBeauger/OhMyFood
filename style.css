@@ -1,0 +1,35 @@
+body {
+  font-family: "Manrope", sans-serif;
+  font-size: 1em;
+  background-color: #1f2039;
+}
+
+header {
+  background-color: white;
+  padding: 20px 50px;
+}
+
+/* Barre de navigation */
+.navbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.navbar .navbar__link {
+  margin-left: 30px;
+  color: #242424;
+  text-decoration: none;
+}
+.navbar .navbar__link--color {
+  color: #a5b4fc;
+}
+@media screen and (max-width: 500px) {
+  .navbar {
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+  .navbar__logo {
+    display: none;
+  }
+}/*# sourceMappingURL=style.css.map */

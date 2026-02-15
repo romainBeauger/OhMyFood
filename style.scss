@@ -1,0 +1,45 @@
+// Dans cet exercice, vous allez appliquer vos connaissances sur les media query en rendant la barre de navigation responsive.
+// Créer une media query, qui est utilisée lorsque l'écran fait une taille maximum de 500 pixels.
+// Tous les éléments doivent être disposés à la verticale.
+// Cachez votre logo.
+
+// Variables
+$main-color: #1f2039;
+$title-color: #a5b4fc;
+$dark-purple: #1d0221;
+
+body {
+  font-family: 'Manrope', sans-serif;
+  font-size: 1em;
+  background-color: $main-color;
+}
+
+header {
+  background-color: white;
+  padding: 20px 50px;
+}
+
+/* Barre de navigation */
+.navbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;  
+  .navbar__link {
+    margin-left: 30px;
+    color: #242424;
+    text-decoration: none;
+    &--color {
+      color: $title-color;
+    }
+  }
+  @media screen and (max-width: 500px){
+  flex-direction: column;
+  flex-wrap: nowrap;
+  
+  &__logo{
+    display: none;
+  }
+    
+  }
+}

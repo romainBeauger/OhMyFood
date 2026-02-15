@@ -1,0 +1,370 @@
+@charset "UTF-8";
+/* +++++ MAPS +++++*/
+/* +++++ MIXINS +++++*/
+/* +++++ GLOBAL +++++*/
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+/* +++++ ROOT +++++*/
+:root {
+  --bg-grey-color: #F6F6F6;
+  --bg-white-color: #ffffff;
+  --bg-localisation-color: #eaeaea;
+  --bg-footer-color: #353535;
+  --button-main-color: #9356DC;
+  --button-second-color: #FF79DA;
+  --etiquette-main-color: #99E2D0;
+}
+
+/* +++++ BODY +++++*/
+body {
+  margin: 0;
+}
+
+/* +++++ HEADER +++++*/
+.section-header__container-logo-icone {
+  margin: 20px 0 20px 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.section-header__icone {
+  color: #353535;
+  position: absolute;
+  left: 27px;
+  top: 17px;
+}
+.section-header__container-image {
+  width: 100%;
+}
+.section-header__image {
+  width: 100%;
+  aspect-ratio: 2/1;
+  object-fit: cover;
+}
+.section-header .header__container-image {
+  position: relative;
+  z-index: 1;
+}
+.section-header .header__container-image-menu {
+  width: 100%;
+  aspect-ratio: 2/1.2;
+  object-fit: cover;
+}
+
+/* +++++ MENUS +++++*/
+.section-menu {
+  margin: -10% 0 0 0;
+  z-index: 2;
+  padding: 0 20px;
+  background-color: var(--bg-grey-color);
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  position: relative;
+  /* +++++ CARTE +++++*/
+}
+.section-menu__container-titre-icone {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.section-menu__titre {
+  font-family: "Shrikhand", serif;
+  font-size: 28px;
+  font-weight: 400;
+  margin: 30px 0 0 10px;
+}
+.section-menu__coeurs-container {
+  cursor: pointer;
+}
+.section-menu__coeur-vide, .section-menu__coeur-plein {
+  font-size: 30px;
+  position: absolute;
+  top: 30px;
+  left: 85%;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+}
+.section-menu__coeur-vide {
+  z-index: 2;
+  opacity: 1;
+}
+.section-menu__coeur-vide:hover {
+  opacity: 0;
+}
+.section-menu__coeur-plein {
+  z-index: 1;
+  opacity: 0;
+  background: linear-gradient(#9356DC, #FF79DA);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.section-menu__coeur-plein:hover {
+  opacity: 1;
+  transform: scale(1.2);
+}
+.section-menu__container-carte {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.section-menu__titre-plats {
+  font-size: 16px;
+  font-weight: 300;
+  margin: 30px 0 8px 0;
+  position: relative;
+  animation: slideCards 800ms ease-in-out;
+}
+.section-menu__titre-plats--1 {
+  animation-delay: 250ms;
+}
+.section-menu__titre-plats--2 {
+  animation-delay: 500ms;
+}
+.section-menu__titre-plats--3 {
+  animation-delay: 750ms;
+}
+.section-menu__titre-plats::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0%;
+  width: 40px;
+  border-bottom: 3px solid var(--etiquette-main-color);
+}
+.section-menu__card-plat {
+  background-color: var(--bg-white-color);
+  padding: 10px;
+  border-radius: 20px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateX(-100px);
+  animation: slideCards 800ms ease-out forwards;
+}
+.section-menu__card-plat--1 {
+  animation-delay: 200ms;
+}
+.section-menu__card-plat--2 {
+  animation-delay: 400ms;
+}
+.section-menu__card-plat--3 {
+  animation-delay: 600ms;
+}
+.section-menu__card-plat::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 0;
+  right: 0;
+  top: 0;
+  background-color: #99e2d0;
+  transition: width 250ms ease-in-out;
+  z-index: 1;
+}
+.section-menu__card-plat-nom {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0 0 0 0;
+}
+.section-menu__card-plat-containertxtprix {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 4px;
+  position: relative;
+  flex: 1;
+  z-index: 2;
+}
+.section-menu__card-plat-texte {
+  font-size: 15px;
+  font-weight: 300;
+  margin: 0 0 0 0;
+}
+.section-menu__card-plat-prix {
+  font-size: 15px;
+  font-weight: 700;
+  margin: 0 0 0 0;
+  position: relative;
+  transition: transform 250ms ease-in-out;
+}
+.section-menu__card-plat-check {
+  border-radius: 50%;
+  padding: 2px 4px 0px 4px;
+  background-color: whitesmoke;
+  color: var(--etiquette-main-color);
+  position: absolute;
+  right: -50px;
+  bottom: 10px;
+  transition: all 250ms ease-in-out;
+}
+.section-menu__card-plat:hover {
+  cursor: pointer;
+}
+.section-menu__card-plat:hover::before {
+  width: 50px;
+}
+.section-menu__card-plat:hover .section-menu__card-plat-prix {
+  transform: translateX(-45px);
+}
+.section-menu__card-plat:hover .section-menu__card-plat-check {
+  transform: translateX(-55px);
+}
+.section-menu__card-plat:hover .section-menu__card-plat-texte,
+.section-menu__card-plat:hover .section-menu__card-plat-nom {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 77%;
+}
+.section-menu__container-bouton {
+  text-align: center;
+}
+.section-menu__bouton {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 500;
+  margin: 30px 0 30px 0;
+  width: 40%;
+  text-decoration: none;
+  color: white;
+  padding: 15px;
+  border-radius: 30px;
+  background: linear-gradient(to top left, #9356DC, #FF79DA);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  transition: box-shadow 300ms ease-in-out;
+}
+.section-menu__bouton::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top left, rgb(154.175, 100.525, 220.775), rgb(255, 136.3, 222.2246268657));
+  opacity: 0;
+  transition: opacity 300ms ease-in-out;
+  border-radius: 30px;
+  z-index: 0;
+}
+.section-menu__bouton span {
+  position: relative;
+  z-index: 1;
+}
+.section-menu__bouton:hover {
+  background: linear-gradient(to top left, rgb(154.175, 100.525, 220.775), rgb(255, 136.3, 222.2246268657));
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.4);
+}
+.section-menu__bouton:hover::after {
+  opacity: 1;
+}
+
+/* État actif du cœur après clic */
+.section-menu__coeurs-container.active .section-menu__coeur-vide {
+  opacity: 0;
+}
+.section-menu__coeurs-container.active .section-menu__coeur-plein {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* +++++ FOOTER +++++ */
+.section-footer {
+  margin: 0 0 0 0;
+  padding: 20px;
+  background-color: var(--bg-footer-color);
+  color: white;
+}
+.section-footer__lien {
+  margin: 8px 0;
+}
+.section-footer__lien-icone1 {
+  color: white;
+  margin: 0 10px 0 0;
+}
+.section-footer__lien-icone2 {
+  color: white;
+  margin: 0 4px 0 0;
+}
+.section-footer__lien-texte {
+  color: white;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+/* +++++ MEDIA QUERIES DESKTOP +++++ */
+@media (min-width: 1024px) {
+  /* +++++ HEADER +++++*/
+  .section-header__image {
+    aspect-ratio: 4/1.5;
+  }
+  /* +++++ MENUS +++++*/
+  .section-menu {
+    margin: auto;
+    margin-top: -3%;
+    width: 70%;
+    /* +++++ CARTE +++++*/
+  }
+  .section-menu__titre {
+    margin: 30px auto;
+  }
+  .section-menu__coeur-vide, .section-menu__coeur-plein {
+    top: 35px;
+    left: 68%; /*85% en mobile*/
+  }
+  .section-menu__container-carte {
+    width: 50%; /*100% en mobile*/
+    margin: auto; /*en Desktop uniquement pour centrer la carte*/
+  }
+  .section-menu__card-plat:hover .section-menu__card-plat-prix {
+    transform: translateX(-50px);
+  }
+  .section-menu__bouton {
+    width: 20%; /*40% en mobile*/
+  }
+  /* +++++ FOOTER +++++ */
+  .section-footer {
+    display: flex; /*Aligner le logo et les liens en Desktop*/
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+  .section-footer__logo {
+    order: 2; /*on change l'ordre pour passer le logo à la suite des liens en Desktop*/
+    margin: 15px 0 0 90px;
+  }
+  .section-footer__contenu {
+    order: 1; /*on change l'ordre pour passer le logo à la suite des liens en Desktop*/
+    display: flex; /*Aligner les liens en Desktop*/
+    flex-direction: row; /*Aligner les liens en Desktop*/
+    gap: 10px;
+    margin: 20px 0 0 0;
+  }
+  .section-footer__lien {
+    margin: 0px 0;
+  }
+  .section-footer__lien-texte--mentions {
+    margin-left: 20px; /*margin left à gauche de Mentions Légales sur Desktop*/
+  }
+}
+/* +++++ KEYFRAMES +++++ */
+@keyframes slideCards {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/*# sourceMappingURL=style-menus.css.map */
